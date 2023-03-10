@@ -7,13 +7,34 @@ module.exports = router;
 
 //CRUD routes
 //C - Create
-router.post('/patients', (req, res) => {
+router.post('/patients', async (req, res) => {
+    const data = new Patient({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        gender: req.body.gender,
+        age:req.body.age,
+        doctor:req.body.doctor,
+    });
+  try {
+        // db.teams.insertOne
+        const savedData = await data.save();
+        res.status(201).json(savedData);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
     res.send('POST');
 });
-//R - Read
-router.get('/patients', (req, res) => {
-    res.send('GET');
+
+// R - Read
+router.get('/patients', async (req, res) => {
+    try {
+        const data = await Patient.find();
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 });
+
 
 //U - Update
 router.patch('/patients/:id', (req, res) => {

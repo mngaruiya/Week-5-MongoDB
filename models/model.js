@@ -24,4 +24,4 @@ const patientSchema = new mongoose.Schema({
         required: true,
     },
 });
-module.exports = mongoose.model('Team', teamSchema);
+module.exports = mongoose.model('Patient', patientSchema);
