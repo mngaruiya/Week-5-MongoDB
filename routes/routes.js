@@ -22,7 +22,6 @@ router.post('/patients', async (req, res) => {
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
-    res.send('POST');
 });
 
 // R - Read
@@ -36,12 +35,30 @@ router.get('/patients', async (req, res) => {
 });
 
 
-//U - Update
-router.patch('/patients/:id', (req, res) => {
-    res.send('UPDATE');
+// U - Update
+router.patch('/patients/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const updatedData = req.body;
+
+        const data = await Patient.findByIdAndUpdate(id, updatedData, { new: true });
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 });
 
-//D - Delete
-router.delete('/patients/:id', (req, res) => {
-    res.send('DELETE');
+// D - Delete
+router.delete('/patients/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        const data = await Patient.findByIdAndDelete(id);
+        res.status(204).json({ message: `The patient named ${data.first_name}has been deleted` });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 });
+
+
+
