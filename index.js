@@ -4,10 +4,14 @@ require('dotenv').config();
 
 //import routes
 const routes= require('./routes/routes');
+const indexRoutes = require('./routes/index');
+
 
 // Define the port number
 const port = process.env.PORT || 3000;
 const databaseUrl =process.env.DATABASE_URL ||'';
+
+mongoose.set("strictQuery", false);
 
 
 //Connecting to the database
@@ -27,7 +31,11 @@ database.once('connected',()=>{
 const app = express();
 //ensure application that comes from DB only uses data in json format
 app.use(express.json());
-app.use('/', routes);
+app.use('/', indexRoutes);
+app.use('/patient',routes);
+
+
+
 app.listen(3000, () => {
     console.log(`Server is running on PORT ${3000}`);
 });
