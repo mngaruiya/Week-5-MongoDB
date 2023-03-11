@@ -9,7 +9,7 @@ const indexRoutes = require('./routes/index');
 
 // Define the port number
 const port = process.env.PORT || 3000;
-const databaseUrl =process.env.DATABASE_URL;
+const databaseUrl =process.env.DATABASE_URL || '';
 
 
 

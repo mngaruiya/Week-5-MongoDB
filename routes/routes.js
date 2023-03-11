@@ -7,7 +7,7 @@ module.exports = router;
 
 //CRUD routes
 //C - Create
-router.post('/patients', async (req, res) => {
+router.post('/', async (req, res) => {
     const data = new Patient({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
@@ -25,7 +25,7 @@ router.post('/patients', async (req, res) => {
 });
 
 // R - Read
-router.get('/patients', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const data = await Patient.find();
         res.status(200).json(data);
@@ -36,7 +36,7 @@ router.get('/patients', async (req, res) => {
 
 
 // U - Update
-router.patch('/patients/:id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
@@ -49,7 +49,7 @@ router.patch('/patients/:id', async (req, res) => {
 });
 
 // D - Delete
-router.delete('/patients/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;
 
