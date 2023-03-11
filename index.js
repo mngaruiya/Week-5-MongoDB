@@ -9,7 +9,7 @@ const indexRoutes = require('./routes/index');
 
 // Define the port number
 const port = process.env.PORT || 3000;
-const databaseUrl =process.env.DATABASE_URL || '';
+const databaseUrl =process.env.DATABASE_URL;
 
 
 
@@ -31,7 +31,7 @@ const app = express();
 //ensure application that comes from DB only uses data in json format
 app.use(express.json());
 app.use('/', indexRoutes);
-app.use('/routes',routesRoutes);
+app.use('/patients', routesRoutes);
 
 app.listen(3000, () => {
     console.log(`Server is running on PORT ${3000}`);
