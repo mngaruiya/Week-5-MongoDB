@@ -4,7 +4,7 @@ const router = express.Router();
 
 module.exports = router;
 
-
+//testing the database operations
 //CRUD routes
 //C - Create
 router.post('/', async (req, res) => {
