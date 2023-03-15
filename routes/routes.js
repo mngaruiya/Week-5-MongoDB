@@ -48,7 +48,7 @@ router.patch('/:id', async (req, res) => {
     }
 });
 
-// D - Delete
+// D - Delete an entry by id
 router.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;
