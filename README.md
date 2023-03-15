@@ -12,5 +12,12 @@ The API will show patients data: first name ,last name,,gender and doctor who se
 5. Run your application $ npm run start
 6. Test the CRUD database operations using Postman or CURL on CLI
 7. Host the application on Render
+It is created to facilitate create, update,delete patients details on to a database via CRUD method.
+# Liscence
+This project is licensed under the [MIT] License.
 
+# Project Setup Instructions
+Do not delete or ammend without our authorisation.
 
+# Contact Information
+If you have any question or contributions, please call us on +25471...102
